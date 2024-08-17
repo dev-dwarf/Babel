@@ -1,6 +1,9 @@
 x = mouse_x;
 y = mouse_y;
 
+picker = keyboard_check(vk_alt);
+
+
 if (instance_exists(oPlace))
 {
 	with oPlace
@@ -22,6 +25,9 @@ if (instance_exists(oPlace))
 		
 	}
 }
+
+
+
 
 if (mouse_check_button(mb_left))
 {

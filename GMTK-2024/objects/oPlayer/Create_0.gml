@@ -4,3 +4,5 @@ grv = 0.2;
 jumpheight = -4;
 walkspd = 1;
 jump = false;
+
+stamina = 100;

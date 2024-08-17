@@ -1,35 +1,55 @@
-vsp = vsp + grv;
-hsp = walkspd;
-
-grounded = place_meeting(x,y+1,oWall);
-
-if (place_meeting(x+hsp,y,oWall))
+if (global.pause = false)
 {
-	if (!place_meeting(x+sign(hsp),y,oWall))
-	{
-		x = x + sign(hsp);
-	}
-	walkspd = -walkspd;
-	jump = true;
-}
+	vsp = vsp + grv;
+	hsp = walkspd;
 
-x = x + hsp;
+	grounded = place_meeting(x,y+1,oWall);
 
-if (place_meeting(x,y+vsp,oWall))
-{
-	if (!place_meeting(x,y+sign(vsp),oWall))
+	if (grounded)
 	{
-		y = y + sign(vsp);
-	}
+		var steppingon = instance_place(x,y+1,oWall);
 	
-	vsp = 0;
-}
+		if (steppingon.jump)
+		{
+			jump = true;
+		}
+	
+	}
 
-y = y + vsp;
+	move_wrap(true,false,1)
 
-//Jump
-if (!place_meeting(x+walkspd*2,y+1,oWall)) && (grounded) or (jump)
-{
-	jump = false;
-	vsp = jumpheight;
+	if (place_meeting(x+hsp,y,oWall))
+	{
+		if (!place_meeting(x+sign(hsp),y,oWall))
+		{
+			x = x + sign(hsp);
+		}
+		walkspd = -walkspd;
+		//jump = true;
+	}
+
+	x = x + hsp;
+
+	if (place_meeting(x,y+vsp,oWall))
+	{
+		if (!place_meeting(x,y+sign(vsp),oWall))
+		{
+			y = y + sign(vsp);
+		}
+	
+		vsp = 0;
+	}
+
+	y = y + vsp;
+
+	//Jump
+	stamina = clamp(stamina,0,100);
+	if (grounded) stamina ++;
+	//if (place_free(x+walkspd*2,y+1)) && (grounded) jump = true;
+	if (jump) && (stamina > 25)
+	{
+		jump = false;
+		vsp = jumpheight;
+		stamina = stamina - 25;
+	}
 }

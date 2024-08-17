@@ -7,3 +7,5 @@ window_set_cursor(cr_none);
 
 placex = 0;
 placey = 0;
+
+picker = false;
