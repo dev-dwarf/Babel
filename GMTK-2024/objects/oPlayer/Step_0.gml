@@ -4,7 +4,8 @@ if (reset) {
 	x = lerp(x, checkpointx, 0.2);
 	y = lerp(y, checkpointy, 0.2);
 	stamina = lerp(stamina, max_stamina, 0.25);
-	
+	walkspd = 1;
+
 	if (abs(x - checkpointx) < 0.1 && abs(y - checkpointy) < 0.1) {
 		x = checkpointx;
 		y = checkpointy;
@@ -17,7 +18,17 @@ if (!global.pause) {
 	vsp = vsp + grv;
 	hsp = walkspd;
 
-	grounded = place_meeting(x,y+1,oWall);
+	if (place_meeting(x,y+1,oWall)) {
+		if (!grounded) {
+			with instance_create_depth(x,y,depth+1,oFx) {
+				sprite_index = sFxLand;	
+			}		
+		}
+		
+		grounded = true;
+	} else {
+		grounded = false;	
+	}
 
 	if (grounded) {
 		var steppingon = instance_place(x,y+1,oWall);
@@ -33,7 +44,6 @@ if (!global.pause) {
 			x = x + sign(hsp);
 		}
 		walkspd = -walkspd;
-		//jump = true;
 	}
 
 	x = x + hsp;
@@ -51,11 +61,14 @@ if (!global.pause) {
 	//Jump
 	stamina = clamp(stamina,0,100);
 	if (grounded) stamina ++;
-	//if (place_free(x+walkspd*2,y+1)) && (grounded) jump = true;
 	if (jump) && (stamina > 25) {
 		jump = false;
 		vsp = jumpheight;
 		stamina = stamina - 25;
+		
+		with instance_create_depth(x,y,depth+1,oFx) {
+			sprite_index = sFxJump;	
+		}
 	}
 	
 	

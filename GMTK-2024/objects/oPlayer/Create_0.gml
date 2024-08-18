@@ -10,5 +10,6 @@ checkpointx = xstart;
 checkpointy = ystart;
 
 reset = false;
+grounded = true;
 
 stamina = max_stamina;
