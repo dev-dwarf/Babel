@@ -9,7 +9,7 @@
   "option_windows_copy_exe_to_dest":false,
   "option_windows_description_info":"A GameMaker Game",
   "option_windows_disable_sandbox":false,
-  "option_windows_display_cursor":true,
+  "option_windows_display_cursor":false,
   "option_windows_display_name":"Created with GameMaker",
   "option_windows_enable_steam":false,
   "option_windows_executable_name":"${project_name}.exe",
@@ -30,7 +30,7 @@
   "option_windows_texture_page":"2048x2048",
   "option_windows_use_splash":false,
   "option_windows_version":"1.0.0.0",
-  "option_windows_vsync":false,
+  "option_windows_vsync":true,
   "resourceType":"GMWindowsOptions",
   "resourceVersion":"2.0",
 }

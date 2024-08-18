@@ -28,8 +28,6 @@ if (!global.pause) {
 	
 	}
 
-	move_wrap(true,false,1)
-
 	if (place_meeting(x+hsp,y,oWall)) {
 		if (!place_meeting(x+sign(hsp),y,oWall)) {
 			x = x + sign(hsp);
@@ -60,7 +58,11 @@ if (!global.pause) {
 		stamina = stamina - 25;
 	}
 	
+	
+	if (y > room_height + sprite_height) {
+		reset = true;	
+	}
+	
 } else {
 	reset = true;
-	
 }
