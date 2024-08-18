@@ -26,7 +26,7 @@ if (global.pause) {
 	
 	if (mouse_check_button(mb_right)) {
 		var wall = instance_place(wallx,wally,oWall);
-		if (wall) {
+		if (wall && wall.red) {
 			instance_destroy(wall);
 			target_cursor_angle -= 90;
 			oCamera.screenshake += 1;

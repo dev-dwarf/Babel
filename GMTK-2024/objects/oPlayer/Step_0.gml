@@ -4,7 +4,7 @@ if (reset) {
 	x = lerp(x, checkpointx, 0.2);
 	y = lerp(y, checkpointy, 0.2);
 	stamina = lerp(stamina, max_stamina, 0.25);
-	walkspd = 1;
+	walkdir = 1;
 
 	if (abs(x - checkpointx) < 0.1 && abs(y - checkpointy) < 0.1) {
 		x = checkpointx;
@@ -15,14 +15,18 @@ if (reset) {
 }
 
 if (!global.pause) {
-	vsp = vsp + grv;
-	hsp = walkspd;
+	vsp = approach(vsp, 10, grv);
+	
+	spd = approach(spd, maxspd*stamina/max_stamina, accel);
+	hsp = walkdir*spd;
 
 	if (place_meeting(x,y+1,oWall)) {
 		if (!grounded) {
 			with instance_create_depth(x,y,depth+1,oFx) {
 				sprite_index = sFxLand;	
-			}		
+			}
+			spd *= 0.25;
+			stamina -= 2*vsp;
 		}
 		
 		grounded = true;
@@ -30,48 +34,48 @@ if (!global.pause) {
 		grounded = false;	
 	}
 
-	if (grounded) {
-		var steppingon = instance_place(x,y+1,oWall);
+	if (!jump && grounded) {
+		var steppingon = instance_place(x+2*hsp,y+1,oWall);
 	
-		if (steppingon.jump) {
+		if (!steppingon && stamina > 25) {
+			stamina -= 25;
 			jump = true;
 		}
+	}
 	
-	}
-
-	if (place_meeting(x+hsp,y,oWall)) {
-		if (!place_meeting(x+sign(hsp),y,oWall)) {
-			x = x + sign(hsp);
-		}
-		walkspd = -walkspd;
-	}
-
-	x = x + hsp;
-
-	if (place_meeting(x,y+vsp,oWall)) {
-		if (!place_meeting(x,y+sign(vsp),oWall)) {
-			y = y + sign(vsp);
-		}
-	
-		vsp = 0;
-	}
-
-	y = y + vsp;
-
 	//Jump
+	if (grounded) stamina += 0.3;
 	stamina = clamp(stamina,0,100);
-	if (grounded) stamina ++;
-	if (jump) && (stamina > 25) {
+	if (jump) {
 		jump = false;
 		vsp = jumpheight;
-		stamina = stamina - 25;
 		
 		with instance_create_depth(x,y,depth+1,oFx) {
 			sprite_index = sFxJump;	
 		}
 	}
+
+	if (place_meeting(x+sign(hsp),y,oWall)) {
+		if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
+			x = round(x) + sign(hsp);
+		}
+		walkdir = -walkdir;
+		spd = 0;
+		hsp = 0;
+	}
+
+	x = x + hsp;
+
+	if (place_meeting(x,y+vsp,oWall)) {
+		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
+			y = round(y) + sign(vsp);
+		}
 	
-	
+		vsp = 0;
+	} else {
+		y = y + vsp;
+	}
+
 	if (y > room_height + sprite_height) {
 		reset = true;	
 	}

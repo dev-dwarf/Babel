@@ -1,9 +1,19 @@
+if (global.pause) {
+	if (keyboard_check_pressed(ord("R"))) {
+		oPlayer.reset = true;
+		with oWall {
+			if (red) {
+				instance_destroy();	
+			}
+		}
+	}
+}
+
 var mark_places = false;
 if (last_walls != instance_number(oWall)) {
 	last_walls = approach(last_walls, instance_number(oWall), 0.5);
 	mark_places = true;
 }
-
 
 if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	global.pause = true;
@@ -16,7 +26,6 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	global.pause = false;
 	image_index = 1;
 
-
 	// remove places	
 	instance_destroy(oPlace);
 }
@@ -25,7 +34,7 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 if (mark_places) {
 	instance_destroy(oPlace);
 	with oWall {
-		for (var i = 0; i < sprite_width; i += 16) {
+		for (var i = 0; i < sprite_width-1; i += 16) {
 			instance_create_depth(x+i,y-16,depth,oPlace);
 		}
 	}

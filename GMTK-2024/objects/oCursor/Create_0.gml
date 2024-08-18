@@ -20,3 +20,5 @@ handx = x;
 handy = y;
 
 depth = -1;
+
+random_set_seed(505)
