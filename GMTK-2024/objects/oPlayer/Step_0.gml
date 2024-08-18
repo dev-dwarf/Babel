@@ -33,13 +33,17 @@ if (reset) {
 	}
 
 	if (!jump && grounded) {
-		var steppingon = place_meeting(x+2*hsp,y+1,oWall);
-		var below = place_meeting(x+2*hsp + 16*sign(hsp), y+17, oWall);
+		var steppingon = place_meeting(x + 2*sign(hsp), y+1,oWall);
+		var below = place_meeting(x + 2*sign(hsp), y+17, oWall);
 	
-		if (!steppingon && !below && stamina > 25) {
-			stamina -= 25;
-			stamina_speed = 0;
-			jump = true;
+		if (!steppingon) {
+			if (!below && stamina > 25) {
+				stamina -= 25;
+				stamina_speed = 0;
+				jump = true;
+			} else {
+				hsp *= 0.5;
+			}
 		}
 	}
 	
