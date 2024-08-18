@@ -27,9 +27,9 @@ if (global.pause) {
 	}
 } else {
 	// fuckoff offscreen
-	spd = lerp(spd, 0.2, 0.1);
-	x = lerp(x, oPlayer.x - 360, spd);
-	y = lerp(y, oPlayer.y - 360, spd);
+	spd = lerp(spd, 16, 0.2);
+	x = approach(x, oPlayer.x - 360, spd);
+	y = approach(y, oPlayer.y - 360, spd);
 	
 	placex = lerp(placex, x, 0.2);
 	placey = lerp(placey, y, 0.2);
