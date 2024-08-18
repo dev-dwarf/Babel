@@ -1,20 +1,18 @@
 if (reset) {
 	vsp = 0;
 	hsp = 0;
-	x = lerp(x, checkpointx, 0.2);
-	y = lerp(y, checkpointy, 0.2);
+	x = lerp(x, xstart, 0.2);
+	y = lerp(y, ystart, 0.2);
+	x = approach(x, xstart, 1);
+	y = approach(y, ystart, 1);
 	stamina = lerp(stamina, max_stamina, 0.25);
 	walkdir = 1;
 
-	if (abs(x - checkpointx) < 0.1 && abs(y - checkpointy) < 0.1) {
-		x = checkpointx;
-		y = checkpointy;
-		stamina = max_stamina;
+	if (x == xstart && y == ystart) {
 		reset = false;
+		event_user(0);
 	}
-}
-
-if (!global.pause) {
+} else if (!global.pause) {
 	vsp = approach(vsp, 10, grv);
 	
 	spd = approach(spd, maxspd*stamina/max_stamina, accel);
@@ -25,7 +23,7 @@ if (!global.pause) {
 			with instance_create_depth(x,y,depth+1,oFx) {
 				sprite_index = sFxLand;	
 			}
-			spd *= 0.25;
+			spd *= 0.3;
 			stamina -= 2*vsp;
 		}
 		
@@ -35,16 +33,19 @@ if (!global.pause) {
 	}
 
 	if (!jump && grounded) {
-		var steppingon = instance_place(x+2*hsp,y+1,oWall);
+		var steppingon = place_meeting(x+2*hsp,y+1,oWall);
+		var below = place_meeting(x+2*hsp + 16*sign(hsp), y+17, oWall);
 	
-		if (!steppingon && stamina > 25) {
+		if (!steppingon && !below && stamina > 25) {
 			stamina -= 25;
+			stamina_speed = 0;
 			jump = true;
 		}
 	}
 	
 	//Jump
-	if (grounded) stamina += 0.3;
+	stamina_speed = approach(stamina_speed, .4, 0.01);
+	if (grounded) stamina += stamina_speed;
 	stamina = clamp(stamina,0,100);
 	if (jump) {
 		jump = false;
@@ -55,15 +56,24 @@ if (!global.pause) {
 		}
 	}
 
-	if (place_meeting(x+sign(hsp),y,oWall)) {
+	if (place_meeting(x+hsp,y,oWall)) {
 		if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
 			x = round(x) + sign(hsp);
 		}
-		walkdir = -walkdir;
+		
+		if (grounded) {
+			if (place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
+				vsp = 0.66*jumpheight;
+				stamina -= 10;
+				stamina_speed = 0;
+			} else {
+				walkdir = -walkdir;
+			}
+		}
+		
 		spd = 0;
 		hsp = 0;
 	}
-
 	x = x + hsp;
 
 	if (place_meeting(x,y+vsp,oWall)) {
@@ -72,9 +82,8 @@ if (!global.pause) {
 		}
 	
 		vsp = 0;
-	} else {
-		y = y + vsp;
 	}
+	y = y + vsp;
 
 	if (y > room_height + sprite_height) {
 		reset = true;	
@@ -83,3 +92,4 @@ if (!global.pause) {
 } else {
 	reset = true;
 }
+
