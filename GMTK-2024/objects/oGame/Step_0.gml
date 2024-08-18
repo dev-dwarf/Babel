@@ -40,7 +40,7 @@ if (mark_places) {
 		}
 	}
 	
-	with oWall {
+	with oMakesPlace {
 		if (red && !place_meeting(x,y+1,oMakesPlace)) {
 			instance_destroy();	
 		}
