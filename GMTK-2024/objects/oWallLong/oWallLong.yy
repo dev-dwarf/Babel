@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"oWallBig",
+  "%Name":"oWallLong",
   "eventList":[],
   "managed":true,
-  "name":"oWallBig",
+  "name":"oWallLong",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWallBig_0",
-    "path":"sprites/sWallBig_0/sWallBig_0.yy",
+    "name":"sWallLong_0",
+    "path":"sprites/sWallLong_0/sWallLong_0.yy",
   },
   "spriteMaskId":null,
   "visible":true,
