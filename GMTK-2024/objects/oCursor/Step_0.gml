@@ -7,7 +7,7 @@ if (global.pause) {
 	placex = floor(mouse_x/16)*16;
 	placey = floor(mouse_y/16)*16;
 
-	if (mouse_check_button(mb_left)) {
+	if (mouse_check_button_pressed(mb_left)) {
 		if (!place_meeting(mouse_x,mouse_y,oWall)) {
 			with instance_create_depth(placex,placey,depth+1,oWall) {
 				image_xscale = 0.0;
@@ -15,14 +15,16 @@ if (global.pause) {
 			}
 		
 			target_cursor_angle += 90;
+			oCamera.screenshake += 1;
 		}
 	}
 	
-	if (mouse_check_button(mb_right)) {
+	if (mouse_check_button_pressed(mb_right)) {
 		if (place_meeting(mouse_x,mouse_y,oWall)) {
 			var killmedaddy = instance_place(mouse_x,mouse_y,oWall);
 			instance_destroy(killmedaddy);
 			target_cursor_angle -= 90;
+			oCamera.screenshake += 1;
 		}	
 	}
 } else {
