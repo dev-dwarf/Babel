@@ -8,10 +8,13 @@
   "name":"oWall",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"walls",
+    "path":"folders/Objects/walls.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oMakesPlace",
+    "path":"objects/oMakesPlace/oMakesPlace.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

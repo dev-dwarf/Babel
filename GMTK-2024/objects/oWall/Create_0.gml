@@ -32,16 +32,11 @@ if (sprite_index == sWallTall_0) {
 	}
 }
 
-if (sprite_index == sWallLong_0) {
+if (sprite_index == sWallLong_0) {	
 	if (chance(10 + red*70)) {
 		sprite_index = choose(sWallLong_0, sWallLong_1); 
 	} else if (!red) {
 		sprite_index = sWallLong_bg;
 		image_index = irandom(image_number);
 	}
-}
-
-if (chance(50)) {
-	x += sprite_width;
-	image_xscale = -1;
 }

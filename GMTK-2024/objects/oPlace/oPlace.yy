@@ -8,8 +8,8 @@
   "name":"oPlace",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"noplace",
+    "path":"folders/Objects/noplace.yy",
   },
   "parentObjectId":null,
   "persistent":false,

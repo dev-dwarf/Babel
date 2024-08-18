@@ -1,5 +1,6 @@
 hsp = 0;
 vsp = 0;
+lastvsp = vsp;
 
 spd = 0;
 maxspd = 1.5;
@@ -19,3 +20,17 @@ reset = false;
 grounded = true;
 
 stamina = max_stamina;
+
+enum player {
+	reset,
+	normal,
+	ladder,
+	fall,
+	dead,
+}
+state = player.normal;
+
+death_time_max = 20;
+death_time = death_time_max;
+
+ladder = noone;
