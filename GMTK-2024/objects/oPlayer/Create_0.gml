@@ -5,4 +5,10 @@ jumpheight = -4;
 walkspd = 1;
 jump = false;
 
-stamina = 100;
+max_stamina = 100;
+checkpointx = xstart;
+checkpointy = ystart;
+
+reset = false;
+
+stamina = max_stamina;

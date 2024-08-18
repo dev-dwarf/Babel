@@ -1,38 +1,48 @@
-x = mouse_x;
-y = mouse_y;
 
-picker = keyboard_check(vk_alt);
+if (global.pause) {
+	spd = approach(spd, 0.25, 0.01);
+	x = lerp(x, mouse_x, spd);
+	y = lerp(y, mouse_y, spd);
 
+	placex = floor(mouse_x/16)*16;
+	placey = floor(mouse_y/16)*16;
 
-if (instance_exists(oPlace))
-{
-	with oPlace
-	{
-		x = other.x;
-		y = other.y;
-		move_snap(16,16);
-		other.placex = x;
-		other.placey = y;
-		
-		if (mouse_check_button(mb_right))
-		{
-			if (place_meeting(x,y,oWall))
-			{
-				var killmedaddy = instance_place(x,y,oWall);
-				instance_destroy(killmedaddy);
+	if (mouse_check_button(mb_left)) {
+		if (!place_meeting(mouse_x,mouse_y,oWall)) {
+			with instance_create_depth(placex,placey,depth+1,oWall) {
+				image_xscale = 0.0;
+				image_yscale = 0.0;
 			}
-		}
 		
+			target_cursor_angle += 90;
+		}
 	}
+	
+	if (mouse_check_button(mb_right)) {
+		if (place_meeting(mouse_x,mouse_y,oWall)) {
+			var killmedaddy = instance_place(mouse_x,mouse_y,oWall);
+			instance_destroy(killmedaddy);
+			target_cursor_angle -= 90;
+		}	
+	}
+} else {
+	// fuckoff offscreen
+	spd = lerp(spd, 0.2, 0.1);
+	x = lerp(x, oPlayer.x - 360, spd);
+	y = lerp(y, oPlayer.y - 360, spd);
+	
+	placex = lerp(placex, x, 0.2);
+	placey = lerp(placey, y, 0.2);
 }
 
+// TODO anims
+sprite_index = sCursor;
 
+mask_index = sCursor;
 
-
-if (mouse_check_button(mb_left))
-{
-	with instance_create_depth(placex-16,placey-16,depth+1,oWall)
-	{
-		move_snap(16,16);
-	}
+angle_speed = lerp(angle_speed, 0.2, 0.1);
+if (abs(target_cursor_angle - cursor_angle) < 0.2) {
+	angle_speed = 0;
+	cursor_angle = target_cursor_angle;
 }
+cursor_angle = lerp(cursor_angle, target_cursor_angle, angle_speed);	
