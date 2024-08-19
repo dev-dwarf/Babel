@@ -28,9 +28,9 @@ if (global.pause) {
 	x = lerp(x, placex, spd);
 	y = lerp(y, placey, spd);
 	
-
+	can_place = place_meeting(wallx,wally,oPlace) && !place_meeting(wallx,wally,oMakesPlace) && oGame.block_counts[cursor_i] > 0
 	if (mouse_check_button_pressed(mb_left)) {
-		if (place_meeting(wallx,wally,oPlace) && !place_meeting(wallx,wally,oMakesPlace) && oGame.block_counts[cursor_i] > 0) {
+		if can_place {
 			with (instance_create_depth(wallx,wally,depth+1,oGame.blocks[cursor_i].object_index)) {
 				image_index = other.cursor_index;	
 				i = other.cursor_i;

@@ -76,6 +76,9 @@ switch (state) {
 			state = player.dead;	
 		}
 		
+		if (place_meeting(x,y,oSpike)) {
+			state = player.dead;	
+		}
 	} break;
 	case player.ladder: {
 		var ladderx = ladder.x+ladder.sprite_width/2;
@@ -99,9 +102,16 @@ switch (state) {
 		
 	} break;
 	case player.dead: {
+		hsp = 0;
+		vsp = 0;
+		
 		if (death_time == death_time_max) {
 			oCamera.screenshake += 5;	
+			oCamera.zoom = 0.9;
+			//oCamera.x = x;
+			//oCamera.y = y;
 		}
+		
 		death_time--;
 		if (death_time < 0) {
 			state = player.reset;	
@@ -114,35 +124,36 @@ if (global.pause) {
 }
 
 
-lastvsp = vsp;
+if (state != player.dead) {
+	lastvsp = vsp;
 
-if (place_meeting(x+hsp,y,oWall)) {
-	if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
-		x = round(x) + sign(hsp);
-	}
-		
-	if (state == player.normal && grounded) {
-		if (place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
-			vsp = 0.66*jumpheight;
-			stamina -= 10;
-			stamina_speed = 0;
-		} else {
-			walkdir = -walkdir;
+	if (place_meeting(x+hsp,y,oWall)) {
+		if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
+			x = round(x) + sign(hsp);
 		}
-	}
 		
-	spd = 0;
-	hsp = 0;
-}
-x = x + hsp;
-
-if (place_meeting(x,y+vsp,oWall)) {
-	if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
-		y = round(y) + sign(vsp);
+		if (state == player.normal && grounded) {
+			if (place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
+				vsp = 0.66*jumpheight;
+				stamina -= 10;
+				stamina_speed = 0;
+			} else {
+				walkdir = -walkdir;
+			}
+		}
+		
+		spd = 0;
+		hsp = 0;
 	}
-	
-	vsp = 0;
-}
-y = y + vsp;
+	x = x + hsp;
 
+	if (place_meeting(x,y+vsp,oWall)) {
+		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
+			y = round(y) + sign(vsp);
+		}
+	
+		vsp = 0;
+	}
+	y = y + vsp;
+}
 

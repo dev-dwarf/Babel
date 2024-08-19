@@ -11,6 +11,8 @@ wally = 0;
 cursor_i = 0;
 cursor_index = 0;
 
+can_place = true;
+
 lock_mousex = 0;
 lock_mousey = 0;
 mouse_speed = 0;
