@@ -33,9 +33,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
+    "name":"sPlayer_Run",
+    "path":"sprites/sPlayer_Run/sPlayer_Run.yy",
+  },
+  "spriteMaskId":{
     "name":"sPlayer",
     "path":"sprites/sPlayer/sPlayer.yy",
   },
-  "spriteMaskId":null,
   "visible":true,
 }

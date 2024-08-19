@@ -1,3 +1,4 @@
+//Code
 switch (state) {
 	case player.reset: {
 		vsp = 0;
@@ -118,6 +119,54 @@ switch (state) {
 		}
 	} break;
 }
+//Animation
+switch (state) {
+	case player.reset: {
+		vsp = 0;
+		hsp = 0;
+		x = lerp(x, xstart, 0.2);
+		y = lerp(y, ystart, 0.2);
+		x = approach(x, xstart, 1);
+		y = approach(y, ystart, 1);
+		stamina = lerp(stamina, max_stamina, 0.25);
+		walkdir = 1;
+
+		if (x == xstart && y == ystart) {
+			state = player.normal;
+			event_user(0);
+		}
+	} break;
+	case player.normal: {
+		
+		if (!grounded)
+		{
+			if (vsp > 0) sprite_index = sPlayer_JumpDown;
+			else sprite_index = sPlayer_JumpUp;
+		}
+		else
+		{
+			sprite_index = sPlayer_Run;
+		}
+		
+	} break;
+	case player.ladder: {
+		sprite_index = sPlayer_Ladder;
+	} break;
+	case player.fall: {
+		
+	} break;
+	case player.dead: {
+		
+		instance_create_depth(x,y,depth,fxPlayerRag);
+		sprite_index = sPlayer_Death;
+	} break;
+}
+
+if (hsp != 0)
+{
+	image_xscale = sign(hsp);
+}
+
 
 if (global.pause) {
 	state = player.reset;	
