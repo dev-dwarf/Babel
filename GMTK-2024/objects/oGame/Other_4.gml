@@ -4,9 +4,9 @@ if (room == rInit) {
 
 if (false) {
 	
-//} else if (room == Room_1) {
-//	blocks = [oWall, oWallBig];
-//	block_counts = [1, 1];
+} else if (room == Room_1) {
+	blocks = [oWall, oWallBig, oWallLong];
+	block_counts = [1, 1, 2];
 
 //} else if (room == Room_2) {
 //	blocks = [oWall, oWallBig];

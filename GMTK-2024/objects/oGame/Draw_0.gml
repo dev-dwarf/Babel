@@ -18,7 +18,7 @@ for (var i = 0; i < N; i++) {
 	var ii = i mod NN;
 	var jj = floor(i / NN);
 	var xx = (jj? room_width - 16 - pausex : pausex) + 1*sin(current_time*0.006 + i*30);
-	var yy = 160 + (ii - 0.5*min(4,NN))*64 + 3*sin(current_time*0.002 - i*15) + lerp(4, 0, 1 - abs(1 - 3*block_scale[i]));
+	var yy = 160 + (ii - 0.5*min(N,NN))*64 + 3*sin(current_time*0.002 - i*15) + lerp(4, 0, 1 - abs(1 - 3*block_scale[i]));
 	
 	var n = clamp(block_counts[i] - (i == oCursor.cursor_i), 0, 99);
 	if (n > 0) {
