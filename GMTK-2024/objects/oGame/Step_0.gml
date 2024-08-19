@@ -2,7 +2,7 @@ if (global.pause) {
 	if (keyboard_check_pressed(ord("R"))) {
 		oPlayer.reset = true;
 		with oWall {
-			if (red) {
+			if (red && !inv) {
 				instance_destroy();	
 			}
 		}
@@ -10,8 +10,8 @@ if (global.pause) {
 }
 
 var mark_places = false;
-if (last_walls != instance_number(oWall)) {
-	last_walls = approach(last_walls, instance_number(oWall), 0.5);
+if (last_walls != instance_number(oMakesPlace)) {
+	last_walls = approach(last_walls, instance_number(oMakesPlace), 0.5);
 	mark_places = true;
 }
 
@@ -41,7 +41,7 @@ if (mark_places) {
 	}
 	
 	with oMakesPlace {
-		if (red && !place_meeting(x,y+1,oMakesPlace)) {
+		if (red && !inv && !place_meeting(x,y+1,oMakesPlace)) {
 			instance_destroy();	
 		}
 	}

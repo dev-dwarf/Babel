@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWallTall_0",
-    "path":"sprites/sWallTall_0/sWallTall_0.yy",
+    "name":"sWallTall",
+    "path":"sprites/sWallTall/sWallTall.yy",
   },
   "spriteMaskId":null,
   "visible":true,

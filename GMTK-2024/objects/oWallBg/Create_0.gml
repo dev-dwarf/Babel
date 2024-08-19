@@ -1,4 +1,7 @@
+event_inherited();
+
 red = global.pause;
+i = -1;
 
 image_speed = 0;
 depth = 3;
@@ -19,6 +22,6 @@ if (red) {
 	if (sprite_index == sWallTall_darkbg) {
 		sprite_index = sWallTall_darkred;
 	}
+} else {
+	image_index = irandom(image_number);
 }
-
-image_index = irandom(image_number);

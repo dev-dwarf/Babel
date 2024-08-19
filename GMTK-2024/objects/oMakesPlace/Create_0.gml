@@ -1,0 +1,2 @@
+inv = false;
+red = false;

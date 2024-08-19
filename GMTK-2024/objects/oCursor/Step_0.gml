@@ -2,10 +2,12 @@
 if (mouse_lock) {
 	if (abs(lock_mousex - mouse_x) > 3 or abs(lock_mousey - mouse_y) > 3) {
 		mouse_lock = false;
+		mouse_speed = 0;
 	}
 } else {
-	mousex = approach(mousex, mouse_x, 10);
-	mousey = approach(mousey, mouse_y, 10);
+	mouse_speed = lerp(mouse_speed, 32, 0.05);
+	mousex = approach(mousex, mouse_x, mouse_speed);
+	mousey = approach(mousey, mouse_y, mouse_speed);
 	
 	lock_mousex = 0;
 	lock_mousey = 0;
@@ -17,8 +19,8 @@ if (global.pause) {
 	wallx = floor(mousex/16)*16;
 	wally = floor(mousey/16)*16;
 
-	var placex = oCursor.cursor_obj.sprite_width/2+wallx;
-	var placey = oCursor.cursor_obj.sprite_height/2+wally;
+	var placex = oGame.blocks[cursor_i].sprite_width/2+wallx;
+	var placey = oGame.blocks[cursor_i].sprite_height/2+wally;
 	
 	handx = lerp(handx, placex, 2*spd);
 	handy = lerp(handy, placey, 2*spd);
@@ -28,16 +30,21 @@ if (global.pause) {
 	
 
 	if (mouse_check_button_pressed(mb_left)) {
-		if (place_meeting(wallx,wally,oPlace) && !place_meeting(wallx,wally,oWall)) {
-			with (instance_create_depth(wallx,wally,depth+1,cursor_obj)) {
+		if (place_meeting(wallx,wally,oPlace) && !place_meeting(wallx,wally,oMakesPlace) && oGame.block_counts[cursor_i] > 0) {
+			with (instance_create_depth(wallx,wally,depth+1,oGame.blocks[cursor_i].object_index)) {
 				image_index = other.cursor_index;	
+				i = other.cursor_i;
 			}
-			cursor_index += 1 + irandom(cursor_obj.image_number-1);
-		
-			oCamera.screenshake += 1;
 			
-			mousey -= cursor_obj.sprite_height;
-			mouse_lock = true;
+			cursor_index = oGame.block_index[cursor_i];
+			oGame.block_index[cursor_i] += irandom(oGame.blocks[cursor_i].image_number-1);
+		
+			oCamera.screenshake += 2;
+			
+			if (--oGame.block_counts[cursor_i] > 0) {
+				mousey -= oGame.blocks[cursor_i].sprite_height;
+				mouse_lock = true;
+			}
 			
 			if (lock_mousex == 0) {	
 				lock_mousex = mouse_x;
@@ -51,7 +58,7 @@ if (global.pause) {
 	if (mouse_check_button(mb_right)) {
 		mouse_lock = false;
 		
-		var wall = instance_place(wallx,wally,oWall);
+		var wall = instance_place(wallx,wally,oMakesPlace);
 		if (wall && wall.red) {
 			instance_destroy(wall);
 		}	
@@ -71,10 +78,7 @@ if (global.pause) {
 
 sprite_index = sCursor;
 
-if (!instance_exists(cursor_obj)) {
-	instance_create_depth(-640, -640, depth, cursor_obj);	
-}
-mask_index = cursor_obj.sprite_index;
+mask_index = oGame.blocks[cursor_i].sprite_index;
 
 angle_speed = lerp(angle_speed, 0.2, 0.1);
 if (abs(target_cursor_angle - cursor_angle) < 0.2) {

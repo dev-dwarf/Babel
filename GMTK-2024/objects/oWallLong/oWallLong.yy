@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWallLong_0",
-    "path":"sprites/sWallLong_0/sWallLong_0.yy",
+    "name":"sWallLong",
+    "path":"sprites/sWallLong/sWallLong.yy",
   },
   "spriteMaskId":null,
   "visible":true,

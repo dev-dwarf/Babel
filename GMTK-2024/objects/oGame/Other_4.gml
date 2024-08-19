@@ -1,20 +1,39 @@
-instance_create_layer(room_width/2, room_height/2, layer, oCamera);
-instance_create_layer(-320, -320, layer, oCursor);
+if (room == rInit) {
+	exit;	
+}
 
-last_walls = instance_number(oWall);
+if (false) {
+	
+//} else if (room == Room_1) {
+//	blocks = [oWall, oWallBig];
+//	block_counts = [1, 1];
 
+//} else if (room == Room_2) {
+//	blocks = [oWall, oWallBig];
+//	block_counts = [1, 1];
 
-switch room {
-	case Room_1: {
-		blocks = [oWallBig, oWall];
-		block_counts = [1, 1];
-	} break;
+} else {
+	blocks = [oWall, oWallBig, oWallLong, oWallTall, oWallBg, oWallBigBg, oWallLongBg, oWallTallBg];
+	block_counts = [99, 99, 99, 99, 99, 99, 99, 99];
 }
 
 var N = array_length(blocks);
 block_scale = array_create(N, 1);
 block_index = array_create(N, 1);
 
+global.pause = true;
 for (var i = 0; i < N; i++) {
-	instance_create_layer(-640, -640, layer, blocks[i]);
+	blocks[i] = instance_create_depth(-640, -640+100*i, 0, blocks[i]);
+	
+	with blocks[i] {
+		inv = true;	
+	}
+	//blocks[i].inv = true;
 }
+global.pause = false;
+
+last_walls = instance_number(oMakesPlace);
+
+instance_create_depth(room_width/2, room_height/2, 0, oCamera);
+instance_create_depth(-320, -320, 0, oCursor);
+oCursor.cursor_obj = blocks[0];

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWallBig_0",
-    "path":"sprites/sWallBig_0/sWallBig_0.yy",
+    "name":"sWallBig",
+    "path":"sprites/sWallBig/sWallBig.yy",
   },
   "spriteMaskId":null,
   "visible":true,

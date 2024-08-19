@@ -6,8 +6,8 @@
   "name":"oWallLongBg",
   "overriddenProperties":[],
   "parent":{
-    "name":"scaffold",
-    "path":"folders/Objects/scaffold.yy",
+    "name":"wall_bg",
+    "path":"folders/Objects/wall_bg.yy",
   },
   "parentObjectId":{
     "name":"oWallBg",

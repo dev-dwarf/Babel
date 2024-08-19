@@ -8,12 +8,12 @@
   "name":"oWallBg",
   "overriddenProperties":[],
   "parent":{
-    "name":"scaffold",
-    "path":"folders/Objects/scaffold.yy",
+    "name":"wall_bg",
+    "path":"folders/Objects/wall_bg.yy",
   },
   "parentObjectId":{
-    "name":"oScaffold",
-    "path":"objects/oScaffold/oScaffold.yy",
+    "name":"oMakesPlace",
+    "path":"objects/oMakesPlace/oMakesPlace.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
