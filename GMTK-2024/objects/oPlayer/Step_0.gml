@@ -77,7 +77,10 @@ switch (state) {
 			state = player.dead;	
 		}
 		
-		if (place_meeting(x,y,oSpike)) {
+		if (place_meeting(x,y,oSpike)) 
+		{
+					
+			instance_create_depth(x,y,depth,fxPlayerRag);
 			state = player.dead;	
 		}
 	} break;
@@ -156,8 +159,7 @@ switch (state) {
 		
 	} break;
 	case player.dead: {
-		
-		instance_create_depth(x,y,depth,fxPlayerRag);
+
 		sprite_index = sPlayer_Death;
 	} break;
 }
