@@ -34,3 +34,4 @@ death_time_max = 20;
 death_time = death_time_max;
 
 ladder = noone;
+footsteps = false;

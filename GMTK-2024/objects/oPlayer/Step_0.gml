@@ -81,8 +81,9 @@ switch (state) {
 		{
 					
 			instance_create_depth(x,y,depth,fxPlayerRag);
-			state = player.dead;	
+			state = player.dead;
 		}
+		
 	} break;
 	case player.ladder: {
 		var ladderx = ladder.x+ladder.sprite_width/2;
@@ -149,22 +150,33 @@ switch (state) {
 		else
 		{
 			sprite_index = sPlayer_Run;
+			
+			if (floor(image_index = 1) or floor(image_index = 3))
+			{
+				with instance_create_depth(x,y,depth+1,oFx) {
+				sprite_index = sFxWalk;	
+				image_xscale = other.image_xscale;
+				image_yscale = random_range(0.8,1.2);
+				}
+			}
+			
 		}
-		
 	} break;
 	case player.ladder: {
 		sprite_index = sPlayer_Ladder;
+		image_xscale = 1;
 	} break;
 	case player.fall: {
 		
 	} break;
 	case player.dead: {
 
-		sprite_index = sPlayer_Death;
+		sprite_index = -1;
+		
 	} break;
 }
 
-if (hsp != 0)
+if (hsp != 0) && (state != player.ladder)
 {
 	image_xscale = sign(hsp);
 }
