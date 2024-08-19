@@ -1,7 +1,7 @@
 red = global.pause;
 
 image_speed = 0;
-depth = 2;
+depth = 3;
 
 if (red) {
 	if (sprite_index == sWall_darkbg) {

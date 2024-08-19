@@ -36,7 +36,7 @@ if (mark_places) {
 	
 	with oMakesPlace {
 		for (var i = 0; i < sprite_width-1; i += 16) {
-			instance_create_depth(x+i,y-16,depth,oPlace);
+			instance_create_depth(x+i,y-16,0,oPlace);
 		}
 	}
 	
@@ -49,7 +49,7 @@ if (mark_places) {
 	with oScaffold {
 		for (var i = 0; i < sprite_width-1; i += 16) {
 			for (var j = 0; j < sprite_height-1; j += 16) {
-				instance_create_depth(x+i,y+j,depth,oPlace);
+				instance_create_depth(x+i,y+j,0,oPlace);
 			}
 		}	
 	}

@@ -1,5 +1,5 @@
 
-draw_sprite_ext(sCursorPlace, image_index, placex, placey, image_xscale*oCursor.cursor_obj.sprite_width/16, image_yscale*oCursor.cursor_obj.sprite_height/16, cursor_angle, image_blend, image_alpha);
+draw_sprite_ext(cursor_obj.sprite_index, cursor_index, wallx, wally, image_xscale, image_yscale, cursor_angle, image_blend, image_alpha);
 
 draw_self()
 

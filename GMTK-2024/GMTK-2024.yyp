@@ -54,6 +54,7 @@
     {"id":{"name":"Room_2","path":"rooms/Room_2/Room_2.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
     {"id":{"name":"sBG","path":"sprites/sBG/sBG.yy",},},
+    {"id":{"name":"sBlockHolder","path":"sprites/sBlockHolder/sBlockHolder.yy",},},
     {"id":{"name":"sColorPicker","path":"sprites/sColorPicker/sColorPicker.yy",},},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"sCursorHands","path":"sprites/sCursorHands/sCursorHands.yy",},},

@@ -5,10 +5,17 @@ jumpheight = -4;
 
 window_set_cursor(cr_none);
 
-placex = 0;
-placey = 0;
+wallx = 0;
+wally = 0;
 
 cursor_obj = oWall;
+cursor_index = 0;
+
+lock_mousex = 0;
+lock_mousey = 0;
+mousex = mouse_x;
+mousey = mouse_y;
+mouse_lock = false;
 
 spd = 0.2;
 
@@ -19,6 +26,6 @@ angle_speed = 0;
 handx = x;
 handy = y;
 
-depth = -1;
+depth = -2;
 
 random_set_seed(505)

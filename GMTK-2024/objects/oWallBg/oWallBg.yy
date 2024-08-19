@@ -12,8 +12,8 @@
     "path":"folders/Objects/scaffold.yy",
   },
   "parentObjectId":{
-    "name":"oMakesPlace",
-    "path":"objects/oMakesPlace/oMakesPlace.yy",
+    "name":"oScaffold",
+    "path":"objects/oScaffold/oScaffold.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

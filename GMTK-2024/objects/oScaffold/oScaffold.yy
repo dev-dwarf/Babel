@@ -9,7 +9,10 @@
     "name":"scaffold",
     "path":"folders/Objects/scaffold.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"oMakesPlace",
+    "path":"objects/oMakesPlace/oMakesPlace.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

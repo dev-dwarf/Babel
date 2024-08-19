@@ -1,12 +1,24 @@
 
+if (mouse_lock) {
+	if (abs(lock_mousex - mouse_x) > 3 or abs(lock_mousey - mouse_y) > 3) {
+		mouse_lock = false;
+	}
+} else {
+	mousex = approach(mousex, mouse_x, 10);
+	mousey = approach(mousey, mouse_y, 10);
+	
+	lock_mousex = 0;
+	lock_mousey = 0;
+}
+
 if (global.pause) {
 	spd = approach(spd, 0.25, 0.01);
 	
-	var wallx = floor(mouse_x/16)*16;
-	var wally = floor(mouse_y/16)*16;
+	wallx = floor(mousex/16)*16;
+	wally = floor(mousey/16)*16;
 
-	placex = oCursor.cursor_obj.sprite_width/2+wallx;
-	placey = oCursor.cursor_obj.sprite_height/2+wally;
+	var placex = oCursor.cursor_obj.sprite_width/2+wallx;
+	var placey = oCursor.cursor_obj.sprite_height/2+wally;
 	
 	handx = lerp(handx, placex, 2*spd);
 	handy = lerp(handy, placey, 2*spd);
@@ -15,21 +27,33 @@ if (global.pause) {
 	y = lerp(y, placey, spd);
 	
 
-	if (mouse_check_button(mb_left)) {
+	if (mouse_check_button_pressed(mb_left)) {
 		if (place_meeting(wallx,wally,oPlace) && !place_meeting(wallx,wally,oWall)) {
-			instance_create_depth(wallx,wally,depth+1,cursor_obj);
+			with (instance_create_depth(wallx,wally,depth+1,cursor_obj)) {
+				image_index = other.cursor_index;	
+			}
+			cursor_index += 1 + irandom(cursor_obj.image_number-1);
 		
-			target_cursor_angle += 90;
 			oCamera.screenshake += 1;
+			
+			mousey -= cursor_obj.sprite_height;
+			mouse_lock = true;
+			
+			if (lock_mousex == 0) {	
+				lock_mousex = mouse_x;
+			}
+			if (lock_mousey == 0) {
+				lock_mousey = mouse_y;	
+			}
 		}
 	}
 	
 	if (mouse_check_button(mb_right)) {
+		mouse_lock = false;
+		
 		var wall = instance_place(wallx,wally,oWall);
 		if (wall && wall.red) {
 			instance_destroy(wall);
-			target_cursor_angle -= 90;
-			oCamera.screenshake += 1;
 		}	
 	}
 } else {
@@ -38,21 +62,12 @@ if (global.pause) {
 	x = approach(x, oPlayer.x - 360, spd);
 	y = approach(y, oPlayer.y - 360, spd);
 	
-	placex = lerp(placex, x, 0.2);
-	placey = lerp(placey, y, 0.2);
+	wallx = lerp(wallx, x, 0.2);
+	wallx = lerp(wally, y, 0.2);
 	
 	handx = lerp(handx, x, 0.2);
 	handy = lerp(handy, y, 0.2);
 }
-
-if (keyboard_check_pressed(ord("1"))) {
-	cursor_obj = oWall;	
-}
-
-if (keyboard_check_pressed(ord("2"))) {
-	cursor_obj = oWallBig;	
-}
-
 
 sprite_index = sCursor;
 
