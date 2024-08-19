@@ -59,11 +59,11 @@ if (global.pause) {
 } else {
 	// fuckoff offscreen
 	spd = lerp(spd, 16, 0.2);
-	x = approach(x, oPlayer.x - 360, spd);
-	y = approach(y, oPlayer.y - 360, spd);
+	x = approach(x, oPlayer.x - 640, spd);
+	y = approach(y, oPlayer.y - 640, spd);
 	
 	wallx = lerp(wallx, x, 0.2);
-	wallx = lerp(wally, y, 0.2);
+	wally = lerp(wally, y, 0.2);
 	
 	handx = lerp(handx, x, 0.2);
 	handy = lerp(handy, y, 0.2);
