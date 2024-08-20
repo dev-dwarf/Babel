@@ -5,9 +5,9 @@ if (cursor_i >= 0 && oGame.block_counts[cursor_i] && instance_exists(oGame.block
 	var hh = oGame.blocks[cursor_i].sprite_height;
 	repeat(2) {
 		with instance_create_depth(wallx + irandom(ww), wally + irandom(hh) - 2, -1, oFx) {
-			speed = random_range(0.4, 0.65);
 			image_speed = random_range(0.9, 1.2);
-			direction = 90;
+			speed = random_range(0.4, 0.65);
+			direction = random_range(80, 100);
 			sprite_index = sFXBlock;
 		}
 	}
@@ -24,10 +24,27 @@ if (cursor_i < 0) {
 			with instance_create_depth(wall.x - 2 + irandom(wall.sprite_width+4), wall.y + irandom(wall.sprite_height) - 2, -1, oFx) {
 				image_speed = random_range(0.9, 1.2);
 				speed = random_range(0.4, 0.65);
-				direction = 90;
+				direction = random_range(80, 100);
+
 				sprite_index = sFXBlock;
 			}
 		}	
+		if (chance(10)) {
+			with instance_create_depth(wall.x - 2, wall.y + irandom(wall.sprite_height) - 2, -1, oFx) {
+				image_speed = random_range(0.9, 1.2);
+				speed = random_range(0.4, 0.65);
+				direction = random_range(80, 100);
+				sprite_index = sFXBlock;
+			}
+		}
+		if (chance(10)) {
+			with instance_create_depth(wall.x + 2 + wall.sprite_width, wall.y + irandom(wall.sprite_height) - 2, -1, oFx) {
+				image_speed = random_range(0.9, 1.2);
+				speed = random_range(0.4, 0.65);
+				direction = random_range(80, 100);
+				sprite_index = sFXBlock;
+			}
+		}
 		
 		var oo = (wall.sprite_width > 16) + 2*(wall.sprite_height > 16)
 		draw_sprite_ext(sBlockOutlineThin, oo, wall.x, wall.y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
