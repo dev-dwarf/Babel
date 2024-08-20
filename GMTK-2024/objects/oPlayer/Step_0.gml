@@ -23,7 +23,7 @@ switch (state) {
 		spd = approach(spd, maxspd, accel);
 		hsp = walkdir*spd;
 
-		if (place_meeting(x,y+.5,oWall)) {
+		if (place_meeting(x,y+1,oWall)) {
 			if (!grounded) {
 				with instance_create_depth(x,y,depth+1,oFx) {
 					sprite_index = sFxLand;	
@@ -153,7 +153,7 @@ if (state != player.dead) {
 		
 		if (state == player.normal) {
 			if (grounded && place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
-				vsp = 0.66*jumpheight;
+				vsp = 0.76*jumpheight;
 				stamina -= 10;
 				stamina_speed = 0;
 				
@@ -173,6 +173,7 @@ if (state != player.dead) {
 		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
 			y = round(y) + sign(vsp);
 		}
+		y = vsp > 0? floor(y) : ceil(y);
 		vsp = 0;
 	}
 	y = y + vsp;
