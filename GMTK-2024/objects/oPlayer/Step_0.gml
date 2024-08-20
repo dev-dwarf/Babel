@@ -23,7 +23,7 @@ switch (state) {
 		spd = approach(spd, maxspd, accel);
 		hsp = walkdir*spd;
 
-		if (place_meeting(x,y+.1,oWall)) {
+		if (place_meeting(x,y+.5,oWall)) {
 			if (!grounded) {
 				with instance_create_depth(x,y,depth+1,oFx) {
 					sprite_index = sFxLand;	
@@ -225,9 +225,7 @@ switch (state) {
 		
 	} break;
 	case player.dead: {
-
 		sprite_index = -1;
-		
 	} break;
 }
 
