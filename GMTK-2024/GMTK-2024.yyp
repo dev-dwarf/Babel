@@ -61,6 +61,7 @@
     {"id":{"name":"oWallTall","path":"objects/oWallTall/oWallTall.yy",},},
     {"id":{"name":"oWallTallRed","path":"objects/oWallTallRed/oWallTallRed.yy",},},
     {"id":{"name":"Level_0_5","path":"rooms/Level_0_5/Level_0_5.yy",},},
+    {"id":{"name":"Level_1_5","path":"rooms/Level_1_5/Level_1_5.yy",},},
     {"id":{"name":"Level_1","path":"rooms/Level_1/Level_1.yy",},},
     {"id":{"name":"Level_2","path":"rooms/Level_2/Level_2.yy",},},
     {"id":{"name":"Level_3","path":"rooms/Level_3/Level_3.yy",},},
@@ -159,8 +160,9 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rInit","path":"rooms/rInit/rInit.yy",},},
     {"roomId":{"name":"Level_0_5","path":"rooms/Level_0_5/Level_0_5.yy",},},
-    {"roomId":{"name":"Level_1","path":"rooms/Level_1/Level_1.yy",},},
+    {"roomId":{"name":"Level_1_5","path":"rooms/Level_1_5/Level_1_5.yy",},},
     {"roomId":{"name":"Level_2","path":"rooms/Level_2/Level_2.yy",},},
+    {"roomId":{"name":"Level_1","path":"rooms/Level_1/Level_1.yy",},},
     {"roomId":{"name":"Level_3","path":"rooms/Level_3/Level_3.yy",},},
     {"roomId":{"name":"Level_4","path":"rooms/Level_4/Level_4.yy",},},
     {"roomId":{"name":"Room_1","path":"rooms/Room_1/Room_1.yy",},},
