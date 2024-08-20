@@ -43,6 +43,7 @@ if (global.pause) {
 				cursor_index = wall.image_index;
 				cursor_i = wall.i;
 				instance_destroy(wall);
+				play_sound(Remove_Block, 1, false, 0.8, 0.1, 0.5);
 			}	
 		} else if can_place {
 			with (instance_create_depth(wallx,wally, 0, oGame.blocks[cursor_i].object_index)) {
@@ -55,12 +56,7 @@ if (global.pause) {
 
 			oCamera.screenshake += 2;
 			
-			if (lock_mousex == 0) {	
-				lock_mousex = mouse_x;
-			}
-			if (lock_mousey == 0) {
-				lock_mousey = mouse_y;	
-			}
+			play_sound(Place_Block, 1, false, 0.8, 0.1, 0.5);
 		}
 	}
 	

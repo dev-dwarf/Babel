@@ -1,4 +1,6 @@
 //Code
+image_speed = (global.pause)? 0 : 1;
+
 switch (state) {
 	case player.reset: {
 		vsp = 0;
@@ -21,7 +23,7 @@ switch (state) {
 		spd = approach(spd, maxspd, accel);
 		hsp = walkdir*spd;
 
-		if (place_meeting(x,y+1,oWall)) {
+		if (place_meeting(x,y+.1,oWall)) {
 			if (!grounded) {
 				with instance_create_depth(x,y,depth+1,oFx) {
 					sprite_index = sFxLand;	
@@ -30,6 +32,9 @@ switch (state) {
 				stamina -= 2*lastvsp;
 				
 				oCamera.screenshake += abs(lastvsp)*0.15;
+				
+				play_sound(choose(Landing_01, Landing_02, Landing_03),
+					1, false, 1.0, 0.066, 1.0);
 			}
 		
 			grounded = true;
@@ -64,6 +69,9 @@ switch (state) {
 			}
 			
 			oCamera.screenshake += 2;
+			
+			play_sound(choose(Jump_01, Jump_02, Jump_03),
+					1, false, 1.0, 0.066, 1.0);
 		}
 		
 		var lad = instance_place(x,y,oLadder);
@@ -200,6 +208,9 @@ if (state != player.dead) {
 				vsp = 0.66*jumpheight;
 				stamina -= 10;
 				stamina_speed = 0;
+				
+				play_sound(choose(Jump_01, Jump_02, Jump_03),
+					1, false, 1.2, 0.066, 0.9);
 			} else if (grounded || vsp >= 0.5) {
 				walkdir = -walkdir;
 			}
@@ -214,9 +225,22 @@ if (state != player.dead) {
 		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
 			y = round(y) + sign(vsp);
 		}
-	
 		vsp = 0;
 	}
 	y = y + vsp;
 }
+
+
+if (image_index != last_image_index) {
+	if (image_index == 0 || image_index == 2) {
+		if (grounded) {	
+			play_sound(choose(Footstep_1, Footstep_2, Footstep_3, Footstep_4, Footstep_5, Footstep_6, Footstep_7),
+				5, false, 1.0, 0.03, 0.25);
+		} else if (state == player.ladder) {
+			play_sound(choose(Ladder_Climb_01, Ladder_Climb_02, Ladder_Climb_03, Ladder_Climb_04, Ladder_Climb_05),
+				5, false, 1.0, 0.03, 0.25);
+		}
+	}
+}
+last_image_index = image_index;
 

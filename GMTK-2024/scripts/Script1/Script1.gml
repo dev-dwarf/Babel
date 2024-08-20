@@ -63,7 +63,9 @@ function play_sound() {
 		
 		if (_affected_by_distance) _gain *= max(0, 1-distance_to_object(oCharacter)/argument[7]);
 
-		audio_sound_gain(_id, _gain * audio_sound_get_gain(_id), 0);
+		audio_sound_gain(_id, global.sound_gain * _gain * audio_sound_get_gain(_id), 0);
+	} else {
+		audio_sound_gain(_id, global.sound_gain * audio_sound_get_gain(_id), 0);	
 	}
 	return _id;
 }

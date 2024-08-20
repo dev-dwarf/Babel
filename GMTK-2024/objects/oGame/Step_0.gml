@@ -1,10 +1,12 @@
+audio_sound_gain(BABEL_Loop, global.music_gain*(1.0 - global.pause), 100);
+audio_sound_gain(BABEL_Loop_Quiet, global.music_gain*global.pause, 100);
+
 if (global.pause) {
 	if (keyboard_check_pressed(ord("R"))) {
 		oPlayer.reset = true;
 		with oWall {
-			if (red && !inv) {
-				instance_destroy();	
-			}
+			x = xstart;
+			y = ystart;
 		}
 	}
 }
