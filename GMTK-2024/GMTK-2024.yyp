@@ -25,7 +25,6 @@
     {"$GMFolder":"","%Name":"sWallBig","folderPath":"folders/Sprites/sWallBig.yy","name":"sWallBig","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"sWallLong","folderPath":"folders/Sprites/sWallLong.yy","name":"sWallLong","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"sWallTall","folderPath":"folders/Sprites/sWallTall.yy","name":"sWallTall","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"ChevyRay - Lantern.ttf","CopyToMask":-1,"filePath":"datafiles","name":"ChevyRay - Lantern.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -70,6 +69,7 @@
     {"id":{"name":"sBG_Tower","path":"sprites/sBG_Tower/sBG_Tower.yy",},},
     {"id":{"name":"sBG","path":"sprites/sBG/sBG.yy",},},
     {"id":{"name":"sBlockHolder","path":"sprites/sBlockHolder/sBlockHolder.yy",},},
+    {"id":{"name":"sBlockOutline","path":"sprites/sBlockOutline/sBlockOutline.yy",},},
     {"id":{"name":"sColorPicker","path":"sprites/sColorPicker/sColorPicker.yy",},},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"sCursorHands","path":"sprites/sCursorHands/sCursorHands.yy",},},
