@@ -42,7 +42,7 @@ switch (state) {
 	
 			if (!steppingon) {
 				if (stamina > 25) {
-					stamina -= 25;
+					stamina -= 50;
 					stamina_speed = 0;
 					jump = true;
 				} else {
@@ -52,7 +52,7 @@ switch (state) {
 		}
 	
 		//Jump
-		stamina_speed = approach(stamina_speed, .4, 0.01);
+		stamina_speed = approach(stamina_speed, 1, .1);
 		if (grounded) stamina += stamina_speed;
 		stamina = clamp(stamina,0,100);
 		if (jump) {
