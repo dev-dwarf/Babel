@@ -131,6 +131,53 @@ switch (state) {
 		}
 	} break;
 }
+
+if (hsp != 0) && (state != player.ladder)
+{
+	image_xscale = sign(hsp);
+}
+
+
+if (global.pause) {
+	state = player.reset;	
+}
+
+
+if (state != player.dead) {
+	lastvsp = vsp;
+
+	if (place_meeting(x+hsp,y,oWall)) {
+		if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
+			x = round(x) + sign(hsp);
+		}
+		
+		if (state == player.normal) {
+			if (grounded && place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
+				vsp = 0.66*jumpheight;
+				stamina -= 10;
+				stamina_speed = 0;
+				
+				play_sound(choose(Jump_01, Jump_02, Jump_03),
+					1, false, 1.2, 0.066, 0.9);
+			} else if (grounded || vsp >= 0.5) {
+				walkdir = -walkdir;
+			}
+		}
+		
+		spd = 0;
+		hsp = 0;
+	}
+	x = x + hsp;
+
+	if (place_meeting(x,y+vsp,oWall)) {
+		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
+			y = round(y) + sign(vsp);
+		}
+		vsp = 0;
+	}
+	y = y + vsp;
+}
+
 //Animation
 switch (state) {
 	case player.reset: {
@@ -183,53 +230,6 @@ switch (state) {
 		
 	} break;
 }
-
-if (hsp != 0) && (state != player.ladder)
-{
-	image_xscale = sign(hsp);
-}
-
-
-if (global.pause) {
-	state = player.reset;	
-}
-
-
-if (state != player.dead) {
-	lastvsp = vsp;
-
-	if (place_meeting(x+hsp,y,oWall)) {
-		if (!place_meeting(round(x)+sign(hsp),y,oWall)) {
-			x = round(x) + sign(hsp);
-		}
-		
-		if (state == player.normal) {
-			if (grounded && place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
-				vsp = 0.66*jumpheight;
-				stamina -= 10;
-				stamina_speed = 0;
-				
-				play_sound(choose(Jump_01, Jump_02, Jump_03),
-					1, false, 1.2, 0.066, 0.9);
-			} else if (grounded || vsp >= 0.5) {
-				walkdir = -walkdir;
-			}
-		}
-		
-		spd = 0;
-		hsp = 0;
-	}
-	x = x + hsp;
-
-	if (place_meeting(x,y+vsp,oWall)) {
-		if (!place_meeting(x,round(y)+sign(vsp),oWall)) {
-			y = round(y) + sign(vsp);
-		}
-		vsp = 0;
-	}
-	y = y + vsp;
-}
-
 
 if (image_index != last_image_index) {
 	if (image_index == 0 || image_index == 2) {
