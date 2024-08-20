@@ -1,3 +1,5 @@
+exit;
+
 if !instance_exists(oCursor) {
 	exit;
 }	

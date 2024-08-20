@@ -2,22 +2,25 @@ if (room == rInit) {
 	exit;	
 }
 
-if (false) {
+//if (false) {
 	
-} else if (room == Room_1) {
-	blocks = [oWallRed, oWallBigRed, oWallLongRed];
-	block_counts = [1, 1, 2];
+//} else if (room == Room_1) {
+//	blocks = [oWallRed, oWallBigRed, oWallLongRed];
+//	block_counts = [1, 1, 2];
 
-//} else if (room == Room_2) {
-//	blocks = [oWall, oWallBig];
-//	block_counts = [1, 1];
+////} else if (room == Room_2) {
+////	blocks = [oWall, oWallBig];
+////	block_counts = [1, 1];
 
-} else {
-	blocks = [oWallRed, oWallBigRed, oWallLongRed, oWallTallRed];
-	block_counts = [10, 10, 10, 10];
-}
+//} else {
+//	blocks = [oWallRed, oWallBigRed, oWallLongRed, oWallTallRed];
+//	block_counts = [10, 10, 10, 10];
+//}
+
+blocks = [oWallRed, oWallBigRed, oWallLongRed, oWallTallRed];
 
 var N = array_length(blocks);
+block_counts = array_create(N, 0);
 block_scale = array_create(N, 1);
 block_index = array_create(N, 1);
 
