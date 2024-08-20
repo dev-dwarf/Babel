@@ -33,7 +33,7 @@ if (global.pause) {
 	x = lerp(x, placex, spd);
 	y = lerp(y, placey, spd);
 	
-	can_place = place_meeting(wallx,wally,oPlace) && cursor_i >= 0 && !place_meeting(wallx,wally,oMakesPlace) && oGame.block_counts[cursor_i] > 0
+	can_place = cursor_i >= 0 && !place_meeting(wallx,wally,oMakesPlace) && oGame.block_counts[cursor_i] > 0
 	if (mouse_check_button_pressed(mb_left)) {
 		if (cursor_i < 0) {
 			var wall = instance_place(wallx,wally,oMakesPlace);

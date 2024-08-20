@@ -31,26 +31,26 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 }
 
 // mark places
-if (mark_places) {
-	instance_destroy(oPlace);
+//if (mark_places) {
+//	instance_destroy(oPlace);
 	
-	with oMakesPlace {
-		for (var i = 0; i < sprite_width-1; i += 16) {
-			instance_create_depth(x+i,y-16,0,oPlace);
-		}
-	}
+//	with oMakesPlace {
+//		for (var i = 0; i < sprite_width-1; i += 16) {
+//			instance_create_depth(x+i,y-16,0,oPlace);
+//		}
+//	}
 	
-	with oMakesPlace {
-		if (red && !inv && !place_meeting(x,y+1,oMakesPlace)) {
-			instance_destroy();	
-		}
-	}
+//	with oMakesPlace {
+//		if (red && !inv && !place_meeting(x,y+1,oMakesPlace)) {
+//			instance_destroy();	
+//		}
+//	}
 	
-	with oScaffold {
-		for (var i = 0; i < sprite_width-1; i += 16) {
-			for (var j = 0; j < sprite_height-1; j += 16) {
-				instance_create_depth(x+i,y+j,0,oPlace);
-			}
-		}	
-	}
-}
+//	with oScaffold {
+//		for (var i = 0; i < sprite_width-1; i += 16) {
+//			for (var j = 0; j < sprite_height-1; j += 16) {
+//				instance_create_depth(x+i,y+j,0,oPlace);
+//			}
+//		}	
+//	}
+//}

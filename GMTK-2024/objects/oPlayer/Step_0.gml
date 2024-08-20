@@ -18,7 +18,7 @@ switch (state) {
 	case player.normal: {
 		vsp = approach(vsp, 10, grv);
 	
-		spd = approach(spd, maxspd*stamina/max_stamina, accel);
+		spd = approach(spd, maxspd, accel);
 		hsp = walkdir*spd;
 
 		if (place_meeting(x,y+1,oWall)) {
