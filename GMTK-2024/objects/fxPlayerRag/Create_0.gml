@@ -1,4 +1,4 @@
-vsp = -4;
+vsp = -6;
 grv = 0.2;
 
 repeat (60)
