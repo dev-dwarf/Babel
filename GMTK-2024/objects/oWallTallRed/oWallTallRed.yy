@@ -1,19 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"oWallBg",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"oWallTallRed",
+  "eventList":[],
   "managed":true,
-  "name":"oWallBg",
+  "name":"oWallTallRed",
   "overriddenProperties":[],
   "parent":{
-    "name":"wall_bg",
-    "path":"folders/Objects/wall_bg.yy",
+    "name":"wall_red",
+    "path":"folders/Objects/wall_red.yy",
   },
   "parentObjectId":{
-    "name":"oMakesPlace",
-    "path":"objects/oMakesPlace/oMakesPlace.yy",
+    "name":"oWallRed",
+    "path":"objects/oWallRed/oWallRed.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sWall_darkbg",
-    "path":"sprites/sWall_darkbg/sWall_darkbg.yy",
+    "name":"sWallTall_red",
+    "path":"sprites/sWallTall_red/sWallTall_red.yy",
   },
   "spriteMaskId":null,
   "visible":true,

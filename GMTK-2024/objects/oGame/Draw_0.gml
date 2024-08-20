@@ -15,7 +15,7 @@ oCursor.demon_guy = false;
 for (var i = 0; i < N; i++) {
 	block_scale[i] = lerp(block_scale[i], 1.0, 0.2);
 
-	var NN = 4;
+	var NN = 2;
 	var ii = i mod NN;
 	var jj = floor(i / NN);
 	var xx = (jj? room_width - 16 - pausex : pausex) + 1*sin(current_time*0.006 + i*30);

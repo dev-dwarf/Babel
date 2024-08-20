@@ -5,7 +5,7 @@ if (room == rInit) {
 if (false) {
 	
 } else if (room == Room_1) {
-	blocks = [oWall, oWallBig, oWallLong];
+	blocks = [oWallRed, oWallBigRed, oWallLongRed];
 	block_counts = [1, 1, 2];
 
 //} else if (room == Room_2) {
@@ -13,8 +13,8 @@ if (false) {
 //	block_counts = [1, 1];
 
 } else {
-	blocks = [oWall, oWallBig, oWallLong, oWallTall, oWallBg, oWallBigBg, oWallLongBg, oWallTallBg];
-	block_counts = [99, 99, 99, 99, 99, 99, 99, 99];
+	blocks = [oWallRed, oWallBigRed, oWallLongRed, oWallTallRed];
+	block_counts = [99, 99, 99, 99];
 }
 
 var N = array_length(blocks);
