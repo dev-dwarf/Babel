@@ -30,6 +30,12 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	instance_destroy(oPlace);
 }
 
+if (keyboard_check_pressed(vk_right)) {
+	if (room != room_last) room_goto_next();
+} else if (keyboard_check_pressed(vk_left)) {
+	if (room != room_first) room_goto_previous();
+}
+
 // mark places
 //if (mark_places) {
 //	instance_destroy(oPlace);
