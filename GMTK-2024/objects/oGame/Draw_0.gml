@@ -11,6 +11,7 @@ if (global.pause) {
 	pausex = approach(pausex, -100, 6);
 }	
 
+oCursor.demon_guy = false;
 for (var i = 0; i < N; i++) {
 	block_scale[i] = lerp(block_scale[i], 1.0, 0.2);
 
@@ -35,7 +36,9 @@ for (var i = 0; i < N; i++) {
 	draw_text_color(xx+1, yy-1, s, c, c, c, c, 1.0);
 	draw_text(xx, yy, s);
 
-	if (mouse_check_button_pressed(mb_left) && place_meeting(xx, yy, oCursor)) {
+	var coll = place_meeting(xx, yy, oCursor);
+	oCursor.demon_guy |= coll;
+	if (mouse_check_button_pressed(mb_left) && coll) {
 		if (oCursor.cursor_i == i) {
 			oCursor.cursor_i = -1;
 			block_index[i] = oCursor.cursor_index;

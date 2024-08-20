@@ -29,6 +29,8 @@ angle_speed = 0;
 handx = x;
 handy = y;
 
+demon_guy = false;
+
 depth = -2;
 
 random_set_seed(505)
