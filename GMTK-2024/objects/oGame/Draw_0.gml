@@ -15,11 +15,11 @@ oCursor.demon_guy = false;
 for (var i = 0; i < N; i++) {
 	block_scale[i] = lerp(block_scale[i], 1.0, 0.2);
 
-	var NN = 2;
+	var NN = 3;
 	var ii = i mod NN;
 	var jj = floor(i / NN);
 	var xx = (jj? room_width - 16 - pausex : pausex) + 1*sin(current_time*0.006 + i*30);
-	var yy = 160 + (ii - 0.5*min(N,NN))*64 + 3*sin(current_time*0.002 - i*15) + lerp(4, 0, 1 - abs(1 - 3*block_scale[i]));
+	var yy = 160 + (ii - 0.5*min(N,NN))*80 + 3*sin(current_time*0.002 - i*15) + lerp(4, 0, 1 - abs(1 - 3*block_scale[i]));
 
 	draw_sprite_ext(sBlockHolder, 0, xx, yy, 1, 1, 0, image_blend, image_alpha);
 	
