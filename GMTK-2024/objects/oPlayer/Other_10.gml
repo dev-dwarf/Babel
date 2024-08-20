@@ -7,7 +7,7 @@ maxspd = 1.5;
 accel = 0.1;
 
 grv = 0.2;
-jumpheight = -4;
+jumpheight = -3.5;
 walkdir = 1;
 jump = false;
 

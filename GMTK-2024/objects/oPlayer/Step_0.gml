@@ -46,7 +46,7 @@ switch (state) {
 			var steppingon = place_meeting(x + 3*sign(hsp), y+1,oWall);
 	
 			if (!steppingon) {
-				if (stamina > 25) {
+				if (stamina > 50) {
 					stamina -= 50;
 					stamina_speed = 0;
 					jump = true;
