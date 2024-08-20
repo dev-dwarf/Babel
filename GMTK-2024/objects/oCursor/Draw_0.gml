@@ -1,6 +1,6 @@
 
 
-if (oGame.block_counts[cursor_i] && instance_exists(oGame.blocks[cursor_i])) {
+if (cursor_i >= 0 && oGame.block_counts[cursor_i] && instance_exists(oGame.blocks[cursor_i])) {
 	draw_sprite_ext(oGame.blocks[cursor_i].sprite_index, cursor_index, wallx, wally, image_xscale, image_yscale, cursor_angle, can_place? image_blend : c_gray, image_alpha);
 }
 
