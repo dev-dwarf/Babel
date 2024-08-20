@@ -89,6 +89,7 @@
     {"id":{"name":"sFXBlood","path":"sprites/sFXBlood/sFXBlood.yy",},},
     {"id":{"name":"sFxJump","path":"sprites/sFxJump/sFxJump.yy",},},
     {"id":{"name":"sFxLand","path":"sprites/sFxLand/sFxLand.yy",},},
+    {"id":{"name":"sFXSweat","path":"sprites/sFXSweat/sFXSweat.yy",},},
     {"id":{"name":"sFxWalk","path":"sprites/sFxWalk/sFxWalk.yy",},},
     {"id":{"name":"sGoat_Eat","path":"sprites/sGoat_Eat/sGoat_Eat.yy",},},
     {"id":{"name":"sGoat_Idle","path":"sprites/sGoat_Idle/sGoat_Idle.yy",},},
