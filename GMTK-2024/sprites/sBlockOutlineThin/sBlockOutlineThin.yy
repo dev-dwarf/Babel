@@ -22,7 +22,8 @@
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"9eb7c390-28cb-41e5-849d-91d54332869b","blendMode":0,"displayName":"default","isLocked":false,"name":"9eb7c390-28cb-41e5-849d-91d54332869b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"a58e8111-7aa5-431a-918d-47454eecdc8b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a58e8111-7aa5-431a-918d-47454eecdc8b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"9eb7c390-28cb-41e5-849d-91d54332869b","blendMode":0,"displayName":"default","isLocked":false,"name":"9eb7c390-28cb-41e5-849d-91d54332869b","opacity":31.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
   ],
   "name":"sBlockOutlineThin",
   "nineSlice":null,
