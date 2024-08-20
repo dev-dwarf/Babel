@@ -92,6 +92,9 @@ switch (state) {
 			state = player.dead;
 		}
 		
+		if (x > room_width + sprite_width && room == GoatRoom) {
+			room_goto_next();	
+		}
 	} break;
 	case player.ladder: {
 		var ladderx = ladder.x+ladder.sprite_width/2;
