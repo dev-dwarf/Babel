@@ -16,10 +16,10 @@
   ],
   "gridX":8,
   "gridY":8,
-  "height":48,
+  "height":124,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"eaa8496c-a29a-4c4a-8f22-21e546d5886e","blendMode":0,"displayName":"default","isLocked":false,"name":"eaa8496c-a29a-4c4a-8f22-21e546d5886e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7f2a17ac-b16b-4487-8726-87222ace0cc4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"7f2a17ac-b16b-4487-8726-87222ace0cc4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sBlockHolder",
   "nineSlice":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":48,
+  "width":82,
 }
