@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":2.861859,
+  "duration":2.322063,
   "name":"Beat_Level",
   "parent":{
     "name":"Sounds",

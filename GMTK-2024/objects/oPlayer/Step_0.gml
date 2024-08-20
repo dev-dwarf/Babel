@@ -109,7 +109,7 @@ switch (state) {
 		
 		if (y < 0 - sprite_height) {
 			room_goto_next();
-			play_sound(Beat_Level, 0, false);
+			play_sound(Beat_Level, 0, false, 1.0, 0, 0.75);
 		}	
 	} break;
 	case player.fall: {
