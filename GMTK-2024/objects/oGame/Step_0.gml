@@ -10,20 +10,29 @@ if (global.ending) {
 
 if (room == Finale) exit;
 
+if (room == rInit) {
+	if (mouse_check_button_pressed(mb_left)) {
+		room_goto_next();	
+	}
+	exit;
+}
+
 if (room != GoatRoom || !never_paused) {
 	audio_sound_gain(BABEL_Loop, global.music_gain*(1.0 - global.pause), 100);
 	audio_sound_gain(BABEL_Loop_Quiet, global.music_gain*global.pause, 100);
 	
 	if (!audio_is_playing(BABEL_Loop)) {
 		play_sound(BABEL_Loop, 10, true);
-	}
-	if (!audio_is_playing(BABEL_Loop_Quiet)) {
 		play_sound(BABEL_Loop_Quiet, 10, true);
+		
+		audio_sound_set_track_position(BABEL_Loop, audio_sound_get_track_position(BABEL_Loop_Quiet));
 	}
 } else {
 	audio_sound_gain(BABEL_Loop, 0, 100);
 	audio_sound_gain(BABEL_Loop_Quiet, 0, 100);
 }
+
+
 
 if (global.pause) {
 	never_paused = false;

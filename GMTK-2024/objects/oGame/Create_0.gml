@@ -14,9 +14,5 @@ depth = -1
 
 draw_set_font(Beaver);
 
-play_sound(BABEL_Loop, 10, true);
-play_sound(BABEL_Loop_Quiet, 10, true);
-audio_sound_gain(BABEL_Loop, 0, 0);
-audio_sound_gain(BABEL_Loop_Quiet, 0, 0);
 
-room_goto_next();
+
