@@ -196,12 +196,12 @@ if (state != player.dead) {
 			x = round(x) + sign(hsp);
 		}
 		
-		if (state == player.normal && grounded) {
-			if (place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
+		if (state == player.normal) {
+			if (grounded && place_meeting(x+hsp,y,oWall) && !place_meeting(x+hsp, y-16, oWall) && stamina > 10) {
 				vsp = 0.66*jumpheight;
 				stamina -= 10;
 				stamina_speed = 0;
-			} else {
+			} else if (grounded || vsp >= 0.5) {
 				walkdir = -walkdir;
 			}
 		}
