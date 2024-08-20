@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"3bd5fb5c-4ab6-4cb7-ad3d-0608ef873ae9","name":"3bd5fb5c-4ab6-4cb7-ad3d-0608ef873ae9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"650517e4-5408-4995-8187-1f7d81d5c028","name":"650517e4-5408-4995-8187-1f7d81d5c028","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":78,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"48270144-d0fc-4dc8-ba86-37fee8f87ca4","blendMode":0,"displayName":"default","isLocked":false,"name":"48270144-d0fc-4dc8-ba86-37fee8f87ca4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"aaebc800-bf0b-4107-882e-19bdd1d8f5be","blendMode":0,"displayName":"default","isLocked":false,"name":"aaebc800-bf0b-4107-882e-19bdd1d8f5be","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"towerTile",
   "nineSlice":{
@@ -88,8 +88,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3bd5fb5c-4ab6-4cb7-ad3d-0608ef873ae9","path":"sprites/towerTile/towerTile.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"6a5f0084-3695-4190-8e63-0a5485b6ae55","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"650517e4-5408-4995-8187-1f7d81d5c028","path":"sprites/towerTile/towerTile.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"547de74a-bed6-4d5a-94e4-023f6a04742d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
