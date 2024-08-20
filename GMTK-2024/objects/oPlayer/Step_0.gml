@@ -73,7 +73,8 @@ switch (state) {
 			ladder = lad;
 			hsp = 0;
 			vsp = 0;
-		} else if (y > room_height + sprite_height) {
+		} else if (y > room_height) {
+			instance_create_depth(x,y,depth,fxPlayerRag);
 			state = player.dead;	
 		}
 		

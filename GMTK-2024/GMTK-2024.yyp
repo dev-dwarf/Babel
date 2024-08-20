@@ -70,8 +70,8 @@
     {"id":{"name":"sBG_Tower","path":"sprites/sBG_Tower/sBG_Tower.yy",},},
     {"id":{"name":"sBG","path":"sprites/sBG/sBG.yy",},},
     {"id":{"name":"sBlockHolder","path":"sprites/sBlockHolder/sBlockHolder.yy",},},
-    {"id":{"name":"sCloud","path":"sprites/sCloud/sCloud.yy",},},
     {"id":{"name":"sBlockOutline","path":"sprites/sBlockOutline/sBlockOutline.yy",},},
+    {"id":{"name":"sCloud","path":"sprites/sCloud/sCloud.yy",},},
     {"id":{"name":"sColorPicker","path":"sprites/sColorPicker/sColorPicker.yy",},},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"sCursorHands","path":"sprites/sCursorHands/sCursorHands.yy",},},
@@ -113,9 +113,9 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"rInit","path":"rooms/rInit/rInit.yy",},},
+    {"roomId":{"name":"Level_1","path":"rooms/Level_1/Level_1.yy",},},
     {"roomId":{"name":"Room_1","path":"rooms/Room_1/Room_1.yy",},},
     {"roomId":{"name":"Room_2","path":"rooms/Room_2/Room_2.yy",},},
-    {"roomId":{"name":"Level_1","path":"rooms/Level_1/Level_1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
