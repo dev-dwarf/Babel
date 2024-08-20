@@ -49,6 +49,14 @@ if (global.pause) {
 			with (instance_create_depth(wallx,wally, 0, oGame.blocks[cursor_i].object_index)) {
 				image_index = other.cursor_index;	
 				i = other.cursor_i;
+				
+				var wa = id;
+				
+				with instance_create_depth(x,y,-2,oPlace) {
+					image_index = (wa.sprite_width > 16) + 2*(wa.sprite_height > 16);
+					id.wall = wa;
+					image_speed = 0;
+				}
 			}
 			
 			--oGame.block_counts[cursor_i];

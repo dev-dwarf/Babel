@@ -1,6 +1,25 @@
 //Code
 image_speed = (global.pause)? 0 : 1;
 
+if (global.ending) {
+	sprite_index = sPlayer_Death;
+	
+	depth = -3;
+	
+	y += 4;
+	x = room_width/2;
+	
+	if (room != Fin && y > room_height + sprite_height) {
+		if (room != Level_0_5) {
+			room_goto_previous();	
+		} else {
+			room_goto(Fin);	
+		}
+	}
+	
+	exit;
+}
+
 switch (state) {
 	case player.reset: {
 		vsp = 0;
@@ -60,6 +79,7 @@ switch (state) {
 		stamina_speed = approach(stamina_speed, 1, .1);
 		if (grounded) stamina += stamina_speed;
 		stamina = clamp(stamina,0,100);
+		stamina = 10000;
 		if (jump) {
 			jump = false;
 			vsp = jumpheight;
@@ -110,10 +130,7 @@ switch (state) {
 			ladder = noone;
 		}
 		
-		if (y < 0 - sprite_height) {
-			room_goto_next();
-			play_sound(Beat_Level, 0, false, 1.0, 0, 0.75);
-		}	
+		
 	} break;
 	case player.fall: {
 		
@@ -138,6 +155,11 @@ switch (state) {
 		}
 	} break;
 }
+
+if (y < 0 - sprite_height) {
+	room_goto_next();
+	play_sound(Beat_Level, 0, false, 1.0, 0, 0.75);
+}	
 
 if (hsp != 0) && (state != player.ladder)
 {

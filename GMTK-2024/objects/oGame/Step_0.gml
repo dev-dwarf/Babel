@@ -1,20 +1,32 @@
+if (keyboard_check_pressed(vk_enter)) {
+	global.ending = true;	
+}
 
-if (room != GoatRoom) {
+if (global.ending) {
+	audio_sound_gain(BABEL_Loop, 0, 100);
+	audio_sound_gain(BABEL_Loop_Quiet, global.music_gain, 100);
+	exit;	
+}
+
+if (room == Finale) exit;
+
+if (room != GoatRoom || !never_paused) {
 	audio_sound_gain(BABEL_Loop, global.music_gain*(1.0 - global.pause), 100);
 	audio_sound_gain(BABEL_Loop_Quiet, global.music_gain*global.pause, 100);
+	
+	if (!audio_is_playing(BABEL_Loop)) {
+		play_sound(BABEL_Loop, 10, true);
+	}
+	if (!audio_is_playing(BABEL_Loop_Quiet)) {
+		play_sound(BABEL_Loop_Quiet, 10, true);
+	}
 } else {
 	audio_sound_gain(BABEL_Loop, 0, 100);
 	audio_sound_gain(BABEL_Loop_Quiet, 0, 100);
 }
 
 if (global.pause) {
-	if (keyboard_check_pressed(ord("R"))) {
-		oPlayer.reset = true;
-		with oWall {
-			x = xstart;
-			y = ystart;
-		}
-	}
+	never_paused = false;
 }
 
 var mark_places = false;
@@ -31,6 +43,19 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	mark_places = true;
 	
 	play_sound(BigFlap, 1, false, 1.0, 0.1, 1.0);
+	
+	with oWallRed {
+		var ww = sprite_width; var hh = sprite_height;
+		with instance_create_depth(x,y,-2,oPlace) {
+			image_speed = 0;
+			image_index = (ww > 16) + 2*(hh > 16);
+			alarm[0] = 15;
+			if (room == GoatRoom) {
+				alarm[0] = 30;
+			}
+			wall = other.id;
+		}	
+	}
 } else if (keyboard_check_pressed(vk_space) && global.pause = true) {
 	global.pause = false;
 	image_index = 1;
@@ -39,6 +64,10 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	instance_destroy(oPlace);
 	
 	play_sound(BigFlap, 1, false, 1.0, 0.1, 1.0);
+	
+	with oPlace {
+		instance_destroy();	
+	}
 }
 
 if (keyboard_check_pressed(vk_right)) {
