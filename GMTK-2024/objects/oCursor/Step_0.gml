@@ -22,6 +22,8 @@ if (global.pause) {
 	if (cursor_i >= 0) {
 		offsetx = oGame.blocks[cursor_i].sprite_width/2;
 		offsety = oGame.blocks[cursor_i].sprite_height/2;
+		
+		outline_index = (oGame.blocks[cursor_i].sprite_width > 16) + 2*(oGame.blocks[cursor_i].sprite_height > 16)
 	}
 
 	var placex = offsetx + wallx;

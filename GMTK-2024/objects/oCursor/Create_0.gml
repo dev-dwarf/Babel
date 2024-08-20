@@ -3,6 +3,8 @@ vsp = 0;
 grv = 0.2;
 jumpheight = -4;
 
+outline_index = 0;
+
 window_set_cursor(cr_none);
 
 wallx = 0;
