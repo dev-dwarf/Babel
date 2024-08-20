@@ -1,4 +1,4 @@
-zoom = 0.9;
+zoom = 1.0;
 target_zoom = 1.0;
 zoom_lerp = 0.1;
 
