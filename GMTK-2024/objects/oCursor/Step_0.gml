@@ -45,7 +45,7 @@ if (global.pause) {
 				instance_destroy(wall);
 			}	
 		} else if can_place {
-			with (instance_create_depth(wallx,wally,depth+1,oGame.blocks[cursor_i].object_index)) {
+			with (instance_create_depth(wallx,wally, 0, oGame.blocks[cursor_i].object_index)) {
 				image_index = other.cursor_index;	
 				i = other.cursor_i;
 			}
@@ -81,6 +81,8 @@ sprite_index = sCursor;
 
 if (cursor_i >= 0) {
 	mask_index = oGame.blocks[cursor_i].sprite_index;
+} else {
+	mask_index = sWall_red;	
 }
 
 angle_speed = lerp(angle_speed, 0.2, 0.1);
