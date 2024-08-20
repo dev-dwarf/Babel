@@ -10,8 +10,11 @@ window_set_cursor(cr_none);
 wallx = 0;
 wally = 0;
 
-cursor_i = 0;
+cursor_i = -1;
 cursor_index = 0;
+
+offsetx = 8;
+offsety = 8;
 
 can_place = true;
 

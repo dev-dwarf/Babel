@@ -14,7 +14,7 @@ if (false) {
 
 } else {
 	blocks = [oWallRed, oWallBigRed, oWallLongRed, oWallTallRed];
-	block_counts = [99, 99, 99, 99];
+	block_counts = [10, 10, 10, 10];
 }
 
 var N = array_length(blocks);
