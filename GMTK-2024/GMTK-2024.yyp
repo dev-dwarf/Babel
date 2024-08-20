@@ -70,6 +70,7 @@
     {"id":{"name":"sBG","path":"sprites/sBG/sBG.yy",},},
     {"id":{"name":"sBlockHolder","path":"sprites/sBlockHolder/sBlockHolder.yy",},},
     {"id":{"name":"sBlockOutline","path":"sprites/sBlockOutline/sBlockOutline.yy",},},
+    {"id":{"name":"sBlockOutlineThin","path":"sprites/sBlockOutlineThin/sBlockOutlineThin.yy",},},
     {"id":{"name":"sColorPicker","path":"sprites/sColorPicker/sColorPicker.yy",},},
     {"id":{"name":"sCursor","path":"sprites/sCursor/sCursor.yy",},},
     {"id":{"name":"sCursorHands","path":"sprites/sCursorHands/sCursorHands.yy",},},
