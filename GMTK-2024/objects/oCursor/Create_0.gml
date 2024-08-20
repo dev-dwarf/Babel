@@ -38,4 +38,6 @@ demon_guy = false;
 
 depth = -2;
 
+last_image_index = image_index;
+
 random_set_seed(505)

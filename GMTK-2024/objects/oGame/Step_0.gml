@@ -24,12 +24,15 @@ if (keyboard_check_pressed(vk_space) && global.pause = false) {
 	oCursor.spd = 0.3;
 	mark_places = true;
 	
+	play_sound(BigFlap, 1, false, 1.0, 0.1, 1.0);
 } else if (keyboard_check_pressed(vk_space) && global.pause = true) {
 	global.pause = false;
 	image_index = 1;
 
 	// remove places	
 	instance_destroy(oPlace);
+	
+	play_sound(BigFlap, 1, false, 1.0, 0.1, 1.0);
 }
 
 if (keyboard_check_pressed(vk_right)) {

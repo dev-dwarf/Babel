@@ -58,6 +58,10 @@ if (global.pause) {
 			
 			play_sound(Place_Block, 1, false, 0.8, 0.1, 0.5);
 		}
+		
+		if (chance(15)) {
+			play_sound(Giggle, 4, false, 1.0, 0.1);
+		}
 	}
 	
 } else {
@@ -87,3 +91,12 @@ if (abs(target_cursor_angle - cursor_angle) < 0.2) {
 	cursor_angle = target_cursor_angle;
 }
 cursor_angle = lerp(cursor_angle, target_cursor_angle, angle_speed);	
+
+if (global.pause) {
+	if (floor(image_index) == 2 && floor(last_image_index) != floor(image_index)) {
+		play_sound(choose(Flap_01, Flap_02, Flap_03), 5, false, 1.0, 0.1, 0.25);
+	}
+	
+	
+	
+}

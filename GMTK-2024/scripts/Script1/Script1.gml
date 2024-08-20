@@ -31,7 +31,7 @@ function approach(argument0, argument1, argument2) {
 
 ///@param percent
 function chance(argument0) {
-	return (random(100) <= argument0);
+	return (random_range(0.00001, 100) <= argument0);
 }
 
 ///@desc play_sound

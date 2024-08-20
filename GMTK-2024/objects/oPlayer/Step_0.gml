@@ -109,6 +109,7 @@ switch (state) {
 		
 		if (y < 0 - sprite_height) {
 			room_goto_next();
+			play_sound(Beat_Level, 0, false);
 		}	
 	} break;
 	case player.fall: {
@@ -123,6 +124,9 @@ switch (state) {
 			oCamera.zoom = 0.9;
 			//oCamera.x = x;
 			//oCamera.y = y;
+			
+			play_sound(choose(Death_01, Death_02, Death_03),
+					1, false, 1.2, 0.066, 0.9);
 		}
 		
 		death_time--;
