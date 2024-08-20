@@ -76,6 +76,8 @@
     {"id":{"name":"sCursorPlace","path":"sprites/sCursorPlace/sCursorPlace.yy",},},
     {"id":{"name":"sDemonScroll","path":"sprites/sDemonScroll/sDemonScroll.yy",},},
     {"id":{"name":"sFXBlock","path":"sprites/sFXBlock/sFXBlock.yy",},},
+    {"id":{"name":"sFXBlood_1","path":"sprites/sFXBlood_1/sFXBlood_1.yy",},},
+    {"id":{"name":"sFXBlood","path":"sprites/sFXBlood/sFXBlood.yy",},},
     {"id":{"name":"sFxJump","path":"sprites/sFxJump/sFxJump.yy",},},
     {"id":{"name":"sFxLand","path":"sprites/sFxLand/sFxLand.yy",},},
     {"id":{"name":"sFxWalk","path":"sprites/sFxWalk/sFxWalk.yy",},},
