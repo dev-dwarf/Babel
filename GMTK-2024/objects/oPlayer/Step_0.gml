@@ -39,10 +39,9 @@ switch (state) {
 
 		if (!jump && grounded) {
 			var steppingon = place_meeting(x + 3*sign(hsp), y+1,oWall);
-			var below = place_meeting(x + 3*sign(hsp), y+17, oWall);
 	
 			if (!steppingon) {
-				if (!below && stamina > 25) {
+				if (stamina > 25) {
 					stamina -= 25;
 					stamina_speed = 0;
 					jump = true;
